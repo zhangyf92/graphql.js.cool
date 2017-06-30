@@ -1,30 +1,28 @@
-# Contributing
+# 参与贡献
 
-Organization gh-pages deploy the `master` branch, so active development occurs
-on this `source` branch.
+该项目Github Pages部署在 `Master` 分支, 英文源码在 `source` 分支, 中文源码在 `cn` 分支.
 
-The site is written in JS and Markdown files in `site/`.
+网站是用 `js` 和 `markdown` 进行编写, 文件存放在 `site/` 目录, 核心代码位于 `site/_core/`.
 
-The site chrome are all in JS files in `site/_core/`.
+### 如何进行改动
 
-### Making changes
+安装项目依赖:
 
-The first time, get all the dependencies loaded via
-
-```
+```bash
 npm install
+# 或
+yarn
 ```
 
-Then, run the server via
+然后执行:
 
-```
+```bash
 npm start
-Open http://localhost:8444/
+# 打开 http://localhost:8444/
 ```
 
-Anytime you change the contents, just refresh the page and it's going to be updated.
+在你改动内容之后, 只需要刷新浏览器就能够观察到变化.
 
-### Publish the Website
+### 发布到网站
 
-Once pushed to the `source` branch, Travis CI will publish http://graphql.org/
-
+`cn` 分支通过 Travis CI 自动部署到 https://graphql.js.cool/
