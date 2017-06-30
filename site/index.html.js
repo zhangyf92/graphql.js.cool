@@ -25,7 +25,7 @@ module.exports = ({ page, section }) =>
           </div>
 
           <div className="marketing-col">
-            <h3>Describe your data</h3>
+            <h3>描述你的数据</h3>
             <Prism language="graphql">
               {`type Project {
   name: String
@@ -36,7 +36,7 @@ module.exports = ({ page, section }) =>
           </div>
 
           <div className="marketing-col">
-            <h3>Ask for what you want</h3>
+            <h3>查询你所想要的</h3>
             <Prism language="graphql">
               {`{
   project(name: "GraphQL") {
@@ -47,7 +47,7 @@ module.exports = ({ page, section }) =>
           </div>
 
           <div className="marketing-col">
-            <h3>Get predictable results</h3>
+            <h3>获得可预测结果</h3>
             <Prism language="json">
               {`{
   "project": {
@@ -60,10 +60,10 @@ module.exports = ({ page, section }) =>
 
         <div className="buttons-unit">
           <a className="button" href="/code/">
-            Get Started
+            安装
           </a>
           <a className="button" href="/learn/">
-            Learn More
+            学习
           </a>
         </div>
 
@@ -71,25 +71,23 @@ module.exports = ({ page, section }) =>
     </div>
 
     <section className="lead">
-      <h1>A query language for your API</h1>
+      <h1>一种 API 查询语言</h1>
       <p>
-        GraphQL is a query language for APIs and a runtime for fulfilling
-        those queries with your existing data. GraphQL provides a complete
-        and understandable description of the data in your API, gives
-        clients the power to ask for exactly what they need and nothing
-        more, makes it easier to evolve APIs over time, and enables powerful
-        developer&nbsp;tools.</p>
+        GraphQL 是一种为 API 接口和查询已有数据运行时环境的查询语言.
+        它提供了一套完整的和易于理解的 API 接口数据描述, 给客户端权力去精准查询他们需要的数据,
+        而不用再去实现其他更多的代码, 使 API 接口开发变得更简单高效, 支持强大的开发者工具.
+      </p>
     </section>
 
     <section className="point1" id="predictable-results">
       <div className="prose">
-        <h2>Ask for what you need,<br />get exactly that</h2>
+        <h2>你所需要的,<br />就能精准得到</h2>
         {/*[Illustration: just a simple query and response?]*/}
         <p>
-          Send a GraphQL query to your API and get exactly what you need,
-          nothing more and nothing less. GraphQL queries always return
-          predictable results. Apps using GraphQL are fast and stable because
-          they control the data they get, not the&nbsp;server.</p>
+          发送一条 GraphQL 查询预计到你的 API 接口, 精准捕获你想要的数据, 不多也不少.
+          GraphQL 查询总能返回可预测的结果.
+          使用 GraphQL 的 App 因为能够不通过服务器控制他们所获取的数据, 而变得更加快速和稳定.
+        </p>
       </div>
       <div className="window faux-graphiql" aria-hidden>
         <div className="query">
@@ -179,15 +177,14 @@ module.exports = ({ page, section }) =>
     <div className="grayWash">
       <section className="point2" id="single-request">
         <div className="prose">
-          <h2>Get many resources<br />in a single request</h2>
+          <h2>一条单一请求<br />获得诸多资源</h2>
           {/*Illustration: a query 2 or 3 levels deep]*/}
           <p>
-            GraphQL queries access not just the properties of one resource
-            but also smoothly follow references between them. While typical
-            REST APIs require loading from multiple URLs, GraphQL APIs get
-            all the data your app needs in a single request. Apps using
-            GraphQL can be quick even on slow mobile
-            network&nbsp;connections.</p>
+            GraphQL 查询不仅访问一个资源的属性, 还可以平滑跟踪它们之间的引用.
+            GrahQL API 可以在一条单一请求中获取到你的 App 所需要的所有数据, 
+            而典型的 REST API 需要从多个 URL 进行加载.
+            使用 GraphQL 的 App 即便在缓慢网络的手机下也依然能够很快.
+          </p>
         </div>
         <div className="app-to-server" aria-hidden>
           <img src="/img/phone.svg" width="496" height="440" className="phone" />
