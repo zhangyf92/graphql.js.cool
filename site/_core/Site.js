@@ -59,39 +59,40 @@ export default ({ page, category, title, section, className, noSearch, children 
         <section className="sitemap">
           <a href="/" className="nav-home" />
           <div>
-            <h5><a href="/learn/">Learn</a></h5>
-            <a href="/learn/">Introduction</a>
-            <a href="/learn/queries/">Query Language</a>
-            <a href="/learn/schema/">Type System</a>
-            <a href="/learn/execution/">Execution</a>
-            <a href="/learn/best-practices/">Best Practices</a>
+            <h5><a href="/learn/">学习</a></h5>
+            <a href="/learn/">介绍</a>
+            <a href="/learn/queries/">查询语言</a>
+            <a href="/learn/schema/">类型系统</a>
+            <a href="/learn/execution/">执行</a>
+            <a href="/learn/best-practices/">最佳实践</a>
           </div>
           <div>
-            <h5><a href="/code">Code</a></h5>
-            <a href="/code/#server-libraries">Servers</a>
-            <a href="/code/#graphql-clients">Clients</a>
-            <a href="/code/#tools">Tools</a>
+            <h5><a href="/code">代码</a></h5>
+            <a href="/code/#server-libraries">服务端</a>
+            <a href="/code/#graphql-clients">客户端</a>
+            <a href="/code/#tools">工具</a>
           </div>
           <div>
-            <h5><a href="/community">Community</a></h5>
-            <a href="/community/upcoming-events/">Upcoming Events</a>
+            <h5><a href="/community">社区</a></h5>
+            <a href="/community/upcoming-events/">最新事件</a>
             <a href="http://stackoverflow.com/questions/tagged/graphql" target="_blank" rel="noopener noreferrer">Stack Overflow</a>
-            <a href="https://www.facebook.com/groups/graphql.community/" target="_blank" rel="noopener noreferrer">Facebook Group</a>
+            <a href="https://www.facebook.com/groups/graphql.community/" target="_blank" rel="noopener noreferrer">Facebook 群组</a>
             <a href="https://twitter.com/GraphQL" target="_blank" rel="noopener noreferrer">Twitter</a>
           </div>
           <div>
-            <h5>More</h5>
-            <a href="/blog">GraphQL Team Blog</a>
-            <a href="http://facebook.github.io/graphql/" target="_blank" rel="noopener noreferrer">Read the Spec</a>
+            <h5>更多</h5>
+            <a href="/blog">GraphQL 团队博客</a>
+            <a href="http://facebook.github.io/graphql/" target="_blank" rel="noopener noreferrer">阅读定义</a>
             <a href="https://github.com/graphql" target="_blank" rel="noopener noreferrer">GitHub</a>
-            {page && <a href={'https://github.com/graphql/graphql.github.io/edit/source/site/' + page.relPath} target="_blank" rel="noopener noreferrer">Edit this page &#x270E;</a>}
+            {page && <a href={'https://github.com/willin/graphql.js.cool/edit/cn/site/' + page.relPath} target="_blank" rel="noopener noreferrer">翻译该页面 &#x270E;</a>}
           </div>
         </section>
         <a href="https://code.facebook.com/projects/" target="_blank" rel="noopener noreferrer" className="fbOpenSource">
           <img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45" />
         </a>
         <section className="copyright">
-          Copyright &copy; 2016 Facebook Inc. The contents of this page are licensed BSD-3-Clause.
+          Copyright &copy; 2016 Facebook Inc. The contents of this page are licensed BSD-3-Clause. <br/>
+          译者: <a href="https://willin.wang/" target="_blank">Willin Wang</a>
         </section>
       </footer>
 
