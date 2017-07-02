@@ -12,11 +12,11 @@ var React = require('react');
 module.exports = ({ site, page }) =>
   <div className="nav-docs">
     <div className="nav-docs-section">
-      <h3>Subscribe</h3>
+      <h3>订阅</h3>
       <a rel="home" type="application/rss+xml" href="/blog/rss.xml">RSS</a>
     </div>
     <div className="nav-docs-section">
-      <h3>Recent Posts</h3>
+      <h3>最新文章</h3>
       <ul>
         {site.files.blog
           .filter(file => !file.draft && path.extname(file.relPath) === '.md')

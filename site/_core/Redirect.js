@@ -16,9 +16,9 @@ export default ({ to }) =>
       <script dangerouslySetInnerHTML={{__html: `
         window.location.href = "${to}"
       `}} />
-      <title>GraphQL Page Redirection</title>
+      <title>GraphQL 页面跳转</title>
     </head>
     <body>
-      If you are not redirected automatically, <a href={to}>follow this link</a>.
+      如果您没有自动跳转到页面, <a href={to}>请点击这里</a>.
     </body>
   </html>

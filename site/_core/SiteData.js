@@ -7,5 +7,5 @@
  */
 
 module.exports = {
-  description: "A query language for your API"
+  description: "一个 API 查询语言"
 };
