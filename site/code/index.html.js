@@ -378,7 +378,7 @@ Executor.execute(schema, query) map println
 - [C# / .NET](#c-net-1)
 - [Java / Android](#java-android)
 - [JavaScript](#javascript-1)
-- [Swift / iOS](#swift-ios)
+- [Swift / Objective-C iOS](#swift-objective-c-ios)
 
 ### C# / .NET
 
@@ -394,9 +394,11 @@ Executor.execute(schema, query) map println
   - [Apollo Client](http://dev.apollodata.com/react/) ([github](https://github.com/apollostack/apollo-client)): 强大的JavaScript GraphQL客户端, 旨在与React, React Native, Angular 2或简单的 JavaScript 一起工作.
   - [Lokka](https://github.com/kadirahq/lokka): 一个简单的JavaScript GraphQL客户端, 适用于所有JavaScript环境 - 浏览器, Node.js和React Native.
 
-### Swift / iOS
+### Swift / Objective-C iOS
 
   - [Apollo iOS](http://dev.apollodata.com/ios/) ([github](https://github.com/apollostack/apollo-ios)): 用于iOS的GraphQL客户端, 以特定于查询的Swift类型返回结果, 并与Xcode集成, 并行显示Swift源和GraphQL, 并具有内联错误验证.
+  - [GraphQL iOS](https://github.com/funcompany/graphql-ios): 一个 Objective-C 实现的 GraphQL iOS客户端.
+
 
 ## 工具
 
