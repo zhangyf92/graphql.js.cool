@@ -99,7 +99,7 @@ export default ({ page, category, title, section, className, noSearch, children 
       <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
       <script dangerouslySetInnerHTML={{__html: `
         docsearch({
-          apiKey: 'd103541f3e6041148aade2e746ed4d61',
+          apiKey: '9177558dc6ad5e773ed3fb2d3e6f9099',
           indexName: 'graphql',
           inputSelector: '#algolia-search-input'
         });
@@ -110,7 +110,7 @@ export default ({ page, category, title, section, className, noSearch, children 
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-ga('create', 'UA-44373548-16', 'auto');
+ga('create', 'UA-33096931-4', 'auto');
 ga('send', 'pageview');
       `}} />
     </body>
