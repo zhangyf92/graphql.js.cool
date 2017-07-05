@@ -1,6 +1,6 @@
 ---
 title: GraphQL 介绍
-sidebarTitle: Introduction
+sidebarTitle: GraphQL 介绍
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/

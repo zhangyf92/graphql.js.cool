@@ -1,5 +1,5 @@
 ---
-title: Schemas and Types
+title: 结构和类型
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/schema/
