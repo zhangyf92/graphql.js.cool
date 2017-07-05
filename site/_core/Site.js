@@ -95,10 +95,11 @@ export default ({ page, category, title, section, className, noSearch, children 
           译者: <a href="https://willin.wang/" target="_blank">Willin Wang</a>
         </section>
       </footer>
-      <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
       <script dangerouslySetInnerHTML={{__html: `
         docsearch({
           apiKey: '9177558dc6ad5e773ed3fb2d3e6f9099',
+          appId: 'J0T213YR6H',
           indexName: 'graphql',
           inputSelector: '#algolia-search-input'
         });

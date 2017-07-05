@@ -11,7 +11,7 @@ sublinks: 字段,参数,别名,片段,变量,操作名,指令,转变,行内片�
 
 ## 字段
 
-At its simplest, GraphQL is about asking for specific fields on objects. Let's start by looking at a very simple query and the result we get when we run it:
+在 GraphQL 上最简单查询对象字段的fangfa. 我们先来看一下这个简单的查询和运行得到的结果:
 
 ```graphql
 # { "graphiql": true }
@@ -22,13 +22,13 @@ At its simplest, GraphQL is about asking for specific fields on objects. Let's s
 }
 ```
 
-You can see immediately that the query has exactly the same shape as the result. This is essential to GraphQL, because you always get back what you expect, and the server knows exactly what fields the client is asking for.
+你可以立即看到查询与结果的形式完全相同. 这对于 GraphQL 是非常重要的, 因为你总是希望获得你所期待的内容, 并且服务器端明确知道客户端请求的具体字段.
 
-The field `name` returns a `String` type, in this case the name of the main hero of Star Wars, `"R2-D2"`.
+`name`  字段返回 `String` 类型, 在这个示例里,是星球大战的英雄的名字 `"R2-D2"`.
 
-> Oh, one more thing - the query above is *interactive*. That means you can change it as you like and see the new result. Try adding an `appearsIn` field to the `hero` object in the query, and see the new result.
+> 对了,还有一件事: 上面的查询是*互动的*. 意味着你可以随意修改它并看到更新的结果. 尝试在 `hero` 对象中加入 `appearsIn` 字段的查询,并查看更新的结果.
 
-In the previous example, we just asked for the name of our hero which returned a String, but fields can also refer to Objects. In that case, you can make a *sub-selection* of fields for that object. GraphQL queries can traverse related objects and their fields, letting clients fetch lots of related data in one request, instead of making several roundtrips as one would need in a classic REST architecture.
+在上面的例子里, 我们只是要求返回字符串格式的英雄名字, 字段也可以直接饮用对象. 在这样的情况下, 你可以用 *子选择* 来约束该对象的字段. GraphQL 查询可以遍历相关对象及其字段, 让客户端在单一请求里获取更多的相关数据, 从而替代传统 REST 架构那样经过多次的服务器往返.
 
 ```graphql
 # { "graphiql": true }
@@ -43,8 +43,7 @@ In the previous example, we just asked for the name of our hero which returned a
 }
 ```
 
-Note that in this example, the `friends` field returns an array of items. GraphQL queries look the same for both single items or lists of items, however we know which one to expect based on what is indicated in the schema.
-
+请注意,在这个示例中, `friends` 字段返回的是一个数据的数组. GraphQL 查询对于单个项目或者项目列表看起来相同, 然而我们可以根据结构里指出的内容知道预期的结果.
 
 ## 参数
 
