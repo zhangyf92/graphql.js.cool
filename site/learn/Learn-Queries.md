@@ -4,14 +4,14 @@ layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/queries/
 next: /learn/schema/
-sublinks: 字段,参数,别名,片段,变量,操作名,指令,转变,行内片段
+sublinks: Fields 字段,Arguments 参数,Aliases 别名,Fragments 片段,Variables 变量,Operation name 操作名,Directives 指令,Mutations 转变,Inline Fragments 行内片段
 ---
 
 在这一章节您将会学习如何向 GraphQL 服务器请求查询.
 
-## 字段
+## Fields 字段
 
-在 GraphQL 上最简单查询对象字段的fangfa. 我们先来看一下这个简单的查询和运行得到的结果:
+在 GraphQL 上最简单查询对象字段的方法. 我们先来看一下这个简单的查询和运行得到的结果:
 
 ```graphql
 # { "graphiql": true }
@@ -45,9 +45,9 @@ sublinks: 字段,参数,别名,片段,变量,操作名,指令,转变,行内片�
 
 请注意,在这个示例中, `friends` 字段返回的是一个数据的数组. GraphQL 查询对于单个项目或者项目列表看起来相同, 然而我们可以根据结构里指出的内容知道预期的结果.
 
-## 参数
+## Arguments 参数
 
-If the only thing we could do was traverse objects and their fields, GraphQL would already be a very useful language for data fetching. But when you add the ability to pass arguments to fields, things get much more interesting.
+如果我们唯一能做的事情是遍历对象及其字段, GraphQL 则是已经是一个非常有用的数据提取语言. 当你添加了传递参数到字段的能力时,事情变得更加有趣了.
 
 ```graphql
 # { "graphiql": true }
@@ -59,7 +59,7 @@ If the only thing we could do was traverse objects and their fields, GraphQL wou
 }
 ```
 
-In a system like REST, you can only pass a single set of arguments - the query parameters and URL segments in your request. But in GraphQL, every field and nested object can get its own set of arguments, making GraphQL a complete replacement for making multiple API fetches. You can even pass arguments into scalar fields, to implement data transformations once on the server, instead of on every client separately.
+在一个类似 REST 的系统中, 你只能传递一组查询参数和URL字段作为请求的参数. 但在 GraphQL 中, 每一个嵌套对象的字段可以拥有各自的一组参数, 使得 GraphQL 成为完成多个 API 提取的替代. 你甚至可以传递参数到标量字段中, 以便在服务器上实现数据转换, 而不是分别在每个客户端上.
 
 ```graphql
 # { "graphiql": true }
@@ -71,14 +71,14 @@ In a system like REST, you can only pass a single set of arguments - the query p
 }
 ```
 
-Arguments can be of many different types. In the above example, we have used an Enumeration type, which represents one of a finite set of options (in this case, units of length, either `METER` or `FOOT`). GraphQL comes with a default set of types, but a GraphQL server can also declare its own custom types, as long as they can be serialized into your transport format.
+参数可以是很多不同的类型. 在上面的例子里, 我们使用了枚举类型, 其表示一组有限选项中的一个 (在此情况下, 长度单位无论是 `METER`米 还是 `FOOT`英尺). GraphQL 带有默认的类型, 只要可以将他们序列化为传输格式, GraphQL 服务器也可以自行申明自己的自定义类型.
 
-[Read more about the GraphQL type system here.](/learn/schema)
+[在这里阅读更多关于 GraphQL 类型系统.](/learn/schema)
 
 
-## 别名
+## Aliases 别名
 
-If you have a sharp eye, you may have noticed that, since the result object fields match the name of the field in the query but don't include arguments, you can't directly query for the same field with different arguments. That's why you need _aliases_ - they let you rename the result of a field to anything you want.
+如果你的眼光尖锐, 应该已经注意到了, 由于结果的字段和查询中的字段名称匹配, 但不包括参数, 因此您不能直接使用不同的参数查询相同的字段. 这就是为什么你需要 _别名_ ,它能让你重新命名任何你想要的结果字段.
 
 ```graphql
 # { "graphiql": true }
@@ -92,10 +92,9 @@ If you have a sharp eye, you may have noticed that, since the result object fiel
 }
 ```
 
-In the above example, the two `hero` fields would have conflicted, but since we can alias them to different names, we can get both results in one request.
+上面的例子中, 两个 `hero` 字段会引起冲突, 但由于我们可以将它们分别设置不同的别名, 所以可以在一个请求中获取这两个结果.
 
-
-## 片段
+## Fragments 片段
 
 Let's say we had a relatively complicated page in our app, which let us look at two heroes side by side, along with their friends. You can imagine that such a query could quickly get complicated, because we would need to repeat the fields at least twice - one for each side of the comparison.
 
@@ -124,7 +123,7 @@ fragment comparisonFields on Character {
 You can see how the above query would be pretty repetitive if the fields were repeated. The concept of fragments is frequently used to split complicated application data requirements into smaller chunks, especially when you need to combine lots of UI components with different fragments into one initial data fetch.
 
 
-## 变量
+## Variables 变量
 
 So far, we have been writing all of our arguments inside the query string. But in most applications, the arguments to fields will be dynamic: For example, there might be a dropdown that lets you select which Star Wars episode you are interested in, or a search field, or a set of filters.
 
@@ -181,14 +180,14 @@ query HeroNameAndFriends($episode: Episode = "JEDI") {
 
 When default values are provided for all variables, you can call the query without passing any variables. If any variables are passed as part of the variables dictionary, they will override the defaults. 
 
-## 操作名
+## Operation name 操作名
 
 One thing we also saw in the example above is that our query has acquired an _operation name_. Up until now, we have been using a shorthand syntax where we omit both the `query` keyword and the query name, but in production apps it's useful to use these to make our code less ambiguous.
 
 Think of this just like a function name in your favorite programming language. For example, in JavaScript we can easily work only with anonymous functions, but when we give a function a name, it's easier to track it down, debug our code, and log when it's called. In the same way, GraphQL query and mutation names, along with fragment names, can be a useful debugging tool on the server side to identify different GraphQL requests.
 
 
-## 指令
+## Directives 指令
 
 We discussed above how variables enable us to avoid doing manual string interpolation to construct dynamic queries. Passing variables in arguments solves a pretty big class of these problems, but we might also need a way to dynamically change the structure and shape of our queries using variables. For example, we can imagine a UI component that has a summarized and detailed view, where one includes more fields than the other.
 
@@ -216,7 +215,7 @@ We needed to use a new feature in GraphQL called a _directive_. A directive can 
 Directives can be useful to get out of situations where you otherwise would need to do string manipulation to add and remove fields in your query. Server implementations may also add experimental features by defining completely new directives.
 
 
-## 转变
+## Mutations 转变
 
 Most discussions of GraphQL focus on data fetching, but any complete data platform needs a way to modify server-side data as well.
 
@@ -247,7 +246,7 @@ A mutation can contain multiple fields, just like a query. There's one important
 This means that if we send two `incrementCredits` mutations in one request, the first is guaranteed to finish before the second begins, ensuring that we don't end up with a race condition with ourselves.
 
 
-## 行内片段
+## Inline Fragments 行内片段
 
 Like many other type systems, GraphQL schemas include the ability to define interfaces and union types. [Learn about them in the schema guide.](/learn/schema/#interfaces)
 
