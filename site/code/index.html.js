@@ -132,31 +132,36 @@ $ curl -XPOST "http://0:3000" -H'Content-Type: application/json' -d'{
 用 \`graphql-java\` 实现的 hello world 代码:
 
 \`\`\`java
-import graphql.schema.GraphQLObjectType;
+import graphql.ExecutionResult;
+import graphql.GraphQL;
 import graphql.schema.GraphQLSchema;
+import graphql.schema.StaticDataFetcher;
+import graphql.schema.idl.RuntimeWiring;
+import graphql.schema.idl.SchemaGenerator;
+import graphql.schema.idl.SchemaParser;
+import graphql.schema.idl.TypeDefinitionRegistry;
 
-import static graphql.Scalars.GraphQLString;
-import static graphql.schema.GraphQLFieldDefinition.newFieldDefinition;
-import static graphql.schema.GraphQLObjectType.newObject;
+import static graphql.schema.idl.RuntimeWiring.newRuntimeWiring;
 
 public class HelloWorld {
 
     public static void main(String[] args) {
+        String schema = "type Query{hello: String} schema{query: Query}";
 
-        GraphQLObjectType queryType = newObject()
-                        .name("helloWorldQuery")
-                        .field(newFieldDefinition()
-                                .type(GraphQLString)
-                                .name("hello")
-                                .staticValue("world"))
-                        .build();
+        SchemaParser schemaParser = new SchemaParser();
+        TypeDefinitionRegistry typeDefinitionRegistry = schemaParser.parse(schema);
 
-        GraphQLSchema schema = GraphQLSchema.newSchema()
-                        .query(queryType)
-                        .build();
-        Map<String, Object> result = new GraphQL(schema).execute("{hello}").getData();
+        RuntimeWiring runtimeWiring = newRuntimeWiring()
+                .type("Query", builder -> builder.dataFetcher("hello", new StaticDataFetcher("world")))
+                .build();
 
-        System.out.println(result);
+        SchemaGenerator schemaGenerator = new SchemaGenerator();
+        GraphQLSchema graphQLSchema = schemaGenerator.makeExecutableSchema(typeDefinitionRegistry, runtimeWiring);
+
+        GraphQL build = GraphQL.newGraphQL(graphQLSchema).build();
+        ExecutionResult executionResult = build.execute("{hello}");
+
+        System.out.println(executionResult.getData().toString());
         // Prints: {hello=world}
     }
 }
@@ -376,6 +381,7 @@ Executor.execute(schema, query) map println
 ## GraphQL Clients
 
 - [C# / .NET](#c-net-1)
+- [Go](#go-1)
 - [Java / Android](#java-android)
 - [JavaScript](#javascript-1)
 - [Swift / Objective-C iOS](#swift-objective-c-ios)
@@ -383,6 +389,10 @@ Executor.execute(schema, query) map println
 ### C# / .NET
 
   - [graphql-net-client](https://github.com/bkniffler/graphql-net-client): .NET GraphQL 客户端的基本示例.
+
+### Go
+
+  - [graphql](https://github.com/shurcooL/graphql#readme): A GraphQL client implementation in Go.
 
 ### Java / Android
 
