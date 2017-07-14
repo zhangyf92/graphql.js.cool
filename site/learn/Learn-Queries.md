@@ -4,7 +4,7 @@ layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/queries/
 next: /learn/schema/
-sublinks: Fields 字段,Arguments 参数,Aliases 别名,Fragments 片段,Variables 变量,Operation name 操作名,Directives 指令,Mutations 转变,Inline Fragments 行内片段
+sublinks: Fields 字段,Arguments 参数,Aliases 别名,Fragments 碎片,Variables 变量,Operation name 操作名,Directives 指令,Mutations 转变,Inline Fragments 行内碎片
 ---
 
 在这一章节您将会学习如何向 GraphQL 服务器请求查询.
@@ -94,11 +94,11 @@ sublinks: Fields 字段,Arguments 参数,Aliases 别名,Fragments 片段,Variabl
 
 上面的例子中, 两个 `hero` 字段会引起冲突, 但由于我们可以将它们分别设置不同的别名, 所以可以在一个请求中获取这两个结果.
 
-## Fragments 片段
+## Fragments 碎片
 
-Let's say we had a relatively complicated page in our app, which let us look at two heroes side by side, along with their friends. You can imagine that such a query could quickly get complicated, because we would need to repeat the fields at least twice - one for each side of the comparison.
+假设我们的应用程序里有一个复杂的页面, 让我们比较两位英雄和他们的朋友. 你可以想象这么一条查询语句可以蒜素实现这个复杂的请求, 因为我们需要将字段至少重复两次, 一个一个进行比较.
 
-That's why GraphQL includes reusable units called _fragments_. Fragments let you construct sets of fields, and then include them in queries where you need to. Here's an example of how you could solve the above situation using fragments:
+这就是为什么 GraphQL 提供了成为 _fragments (碎片)_ 的可重用单元. 碎片允许你构建一组字段, 然后在你的查询里需要的地方引用它们. 这里有一个示例, 用碎片来解决上述的情形:
 
 ```graphql
 # { "graphiql": true }
@@ -120,22 +120,22 @@ fragment comparisonFields on Character {
 }
 ```
 
-You can see how the above query would be pretty repetitive if the fields were repeated. The concept of fragments is frequently used to split complicated application data requirements into smaller chunks, especially when you need to combine lots of UI components with different fragments into one initial data fetch.
-
+你可以看到上述查询中字段巧妙地进行了重复的使用. 碎片的概念经常用于将复杂的应用程序数据需求分解成更小的块, 尤其是在你需要合并 UI组件 中不同的碎片到一个初始化数据抓取时.
 
 ## Variables 变量
 
-So far, we have been writing all of our arguments inside the query string. But in most applications, the arguments to fields will be dynamic: For example, there might be a dropdown that lets you select which Star Wars episode you are interested in, or a search field, or a set of filters.
+到目前为止, 我们一直在查询字符串中写入所有的参数. 但实际上大多数应用, 参数的字段可能是动态的. 例如, 可能会有一个下拉列表, 让你选择你所感兴趣的星球大战插曲, 或一个搜索字段, 或一组过滤器.
 
-It wouldn't be a good idea to pass these dynamic arguments directly in the query string, because then our client-side code would need to dynamically manipulate the query string at runtime, and serialize it into a GraphQL-specific format. Instead, GraphQL has a first-class way to factor dynamic values out of the query, and pass them as a separate dictionary. These values are called _variables_.
 
-When we start working with variables, we need to do three things:
+直接在查询语句中传递动态变量不是一种好的做法, 因为我们的客户端代码需要在运行时动态的去处理这些查询语句, 并且将其序列化为 GraphQL 指定的格式. 作为替代, GraphQL提供将动态值从查询中抽离,并且单独作为一个字段传入的一级方法. 这些值成为 _变量_.
 
-1. Replace the static value in the query with `$variableName`
-2. Declare `$variableName` as one of the variables accepted by the query
-3. Pass `variableName: value` in the separate, transport-specific (usually JSON) variables dictionary
+当我们开始使用变量时, 我们需要做三件事情:
 
-Here's what it looks like all together:
+1. 用 `$变量名` 来替代查询中的静态值
+2. 申明 `$变量名` 作为查询所接收的一个变量
+3. 单独传递 `变量名: 值` , 或传递特定格式(通常是 JSON)的变量字典
+
+看起来是这个样子的:
 
 ```graphql
 # { "graphiql": true, "variables": { "episode": "JEDI" } }
@@ -149,10 +149,9 @@ query HeroNameAndFriends($episode: Episode) {
 }
 ```
 
-Now, in our client code, we can simply pass a different variable rather than needing to construct an entirely new query. This is also in general a good practice for denoting which arguments in our query are expected to be dynamic - we should never be doing string interpolation to construct queries from user-supplied values.
+现在, 在我们客户端的代码中, 我们可以简单传递一些不同的变量, 而不需要去重构整个查询语句. 这通常是表达查询中动态参数的最佳实践,我们不应该使用字符串插值的方法来重构查询语句.
 
-
-### Variable definitions
+### 变量定义
 
 The variable definitions are the part that looks like `($episode: Episode)` in the query above. It works just like the argument definitions for a function in a typed language. It lists all of the variables, prefixed by `$`, followed by their type, in this case `Episode`.
 
@@ -246,7 +245,7 @@ A mutation can contain multiple fields, just like a query. There's one important
 This means that if we send two `incrementCredits` mutations in one request, the first is guaranteed to finish before the second begins, ensuring that we don't end up with a race condition with ourselves.
 
 
-## Inline Fragments 行内片段
+## Inline Fragments 行内碎片
 
 Like many other type systems, GraphQL schemas include the ability to define interfaces and union types. [Learn about them in the schema guide.](/learn/schema/#interfaces)
 
